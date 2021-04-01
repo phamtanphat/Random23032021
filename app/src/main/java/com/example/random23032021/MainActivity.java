@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,9 +29,12 @@ public class MainActivity extends AppCompatActivity {
         mBtnChia = findViewById(R.id.buttonChia);
         mBtnReset = findViewById(R.id.buttonReset);
 
+        // Hiển thị thông báo
 
+        // built-in function
+        // ctrl + p : xem tham số truyền vào
 
-
-
+        // context :
+        Toast.makeText(this,"Thong bao",Toast.LENGTH_LONG).show();
     }
 }
