@@ -3,6 +3,7 @@ package com.example.random23032021;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
         // built-in function
         // ctrl + p : xem tham số truyền vào
 
-        // context :
-        Toast.makeText(this,"Thong bao",Toast.LENGTH_LONG).show();
+        // Toast.makeText(this,"Thong bao",Toast.LENGTH_LONG).show();
+
+        // Kiểm tra dữ liệu trong system
+        Log.d("BBB",mBtnReset.getText().toString());
+
     }
 }
