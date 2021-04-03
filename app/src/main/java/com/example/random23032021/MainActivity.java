@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     // 1 : Khai báo biến
@@ -61,10 +64,86 @@ public class MainActivity extends AppCompatActivity {
 
                 int ketQua = soThu1 + soThu2;
 
-                
                 // 5 + 5 = 10
                  mTvKetQua.setText(soThu1 + " + " + soThu2 + " = " + ketQua);
 
+            }
+        });
+
+        mBtnTru.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textSoThu1 = mEdtSoThu1.getText().toString();
+                String textSoThu2 = mEdtSoThu2.getText().toString();
+
+                if (textSoThu1.length() <= 0 || textSoThu2.length() <= 0){
+                    Toast.makeText(MainActivity.this, "Chưa nhập đủ thông tin!!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int soThu1 = Integer.parseInt(textSoThu1);
+                int soThu2 = Integer.parseInt(textSoThu2);
+
+                int ketQua = soThu1 - soThu2;
+
+                // 5 + 5 = 10
+                mTvKetQua.setText(soThu1 + " - " + soThu2 + " = " + ketQua);
+            }
+        });
+        mBtnNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textSoThu1 = mEdtSoThu1.getText().toString();
+                String textSoThu2 = mEdtSoThu2.getText().toString();
+
+                if (textSoThu1.length() <= 0 || textSoThu2.length() <= 0){
+                    Toast.makeText(MainActivity.this, "Chưa nhập đủ thông tin!!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                long soThu1 = Long.parseLong(textSoThu1);
+                long soThu2 = Long.parseLong(textSoThu2);
+
+                long ketQua = soThu1 * soThu2;
+
+                // 5 + 5 = 10
+                DecimalFormat simpleDateFormat = new DecimalFormat("#,###");
+                mTvKetQua.setText(soThu1 + " * " + soThu2 + " = " + simpleDateFormat.format(ketQua));
+            }
+        });
+
+        mBtnChia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textSoThu1 = mEdtSoThu1.getText().toString();
+                String textSoThu2 = mEdtSoThu2.getText().toString();
+
+                if (textSoThu1.length() <= 0 || textSoThu2.length() <= 0){
+                    Toast.makeText(MainActivity.this, "Chưa nhập đủ thông tin!!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (textSoThu2.equals("0")){
+                    Toast.makeText(MainActivity.this, "Phép chia vô nghĩa", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int soThu1 = Integer.parseInt(textSoThu1);
+                int soThu2 = Integer.parseInt(textSoThu2);
+
+                float ketQua =  soThu1 / soThu2;
+
+                // 5 + 5 = 10
+                mTvKetQua.setText(soThu1 + " / " + soThu2 + " = " + ketQua);
+            }
+        });
+
+        mBtnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEdtSoThu1.setText("");
+                mEdtSoThu2.setText("");
+                mTvKetQua.setText("");
             }
         });
     }
